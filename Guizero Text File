@@ -1,0 +1,44 @@
+#######################################################################
+from guizero import App, TextBox, PushButton, Box, Combo, Slider      #
+#######################################################################
+
+def open_file():
+    #procedure that opens the specific file
+    with open(file_name.value, 'r') as f:
+        editor.value = f.read()
+
+def save_file():
+    #procedure that saves the file
+    with open(file_name.value, 'w') as f:
+        f.write(editor.value)
+
+
+def change_font():
+    editor.font = font.value
+
+def change_text_size():
+    editor.text_size = size.value
+    editor.resize(1,1)
+    editor.resize('fill','fill')
+
+##MAIN##
+app = App(title='texteditor') #names the window which has everything in
+
+file_controls = Box(app, align='top', width='fill')
+#allow the box at the top of the window to have a background. name of the variable can lead to what the buttons in the box mean 
+
+file_name = TextBox(file_controls, text='text_file.txt', width=50, align='left') # allows the name of the file to be named
+
+save_button = PushButton(file_controls, text='Save', command=save_file, align='right') # saves the file
+
+open_button = PushButton(file_controls, text='Open', command=open_file, align = 'right') # opens the file
+
+editor = TextBox(app, multiline=True, height='fill', width = 'fill') # allows the textbox to be filled with words and then be saved into a file
+
+preferences_controls = Box(app, align='bottom', width='fill', border=True)
+
+font = Combo(preferences_controls, options = ["Courier","Times New Roman","Verdana","Arial"], align='left', command=change_font)
+
+size = Slider(preferences_controls, align='left', command = change_text_size, start=10, end=18)
+
+app.display() # display the window
