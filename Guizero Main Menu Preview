@@ -1,0 +1,10 @@
+app = App(title="TESCO", height = 500) # gives the title TESCO
+text_blank = Text(app, text=" ") # leaves a space for it looking better in the window
+text_blank = Text(app, text=" Welcome to the Official Tesco Helpline")
+text_blank = Text(app, text=" ")
+text = PushButton(app, text= "Login", command=Login) # calls the login def to open the Login Window
+text_blank = Text(app, text=" ")
+text = PushButton(app, text= "Signup", command = Signup) # calls the Signup def to open the Signup menu
+text = PushButton(app, text= "Quit", command = quit) # Button here to give the user the ability to quit the program if needed
+picture = Picture(app,image='Tesco.png', width=200,height=100, align = 'bottom') # shows the user what the review is about
+app.bg = 'light blue'
