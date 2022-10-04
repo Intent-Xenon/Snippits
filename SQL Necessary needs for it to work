@@ -1,0 +1,44 @@
+database_file = 'UserApp.db'
+user_ID = 1
+#
+#
+#
+#Delete the database, only if it exists
+#
+#
+if os.path.exists(database_file):
+   os.remove(database_file)
+#
+#Connect to the database
+conn = sqlite3.connect(database_file) #My connection is called 'conn'
+#Get a cursor pointing to the database
+cursor = conn.cursor()
+#Create the tables
+cursor.executescript(sql) # creates from DDL above, script more than 1 command
+#Commit to save everything
+conn.commit()
+#Close the connection to the database
+#
+#Queries the database using the database parameter as the database
+#to query and the query parameter as the actual query to issue
+# for SELECT
+#
+def query_database(database, query):
+	#allows the code to get data frrom the database
+	Lconn = sqlite3.connect(database)
+	cur = Lconn.cursor()			# use a local cursor
+	cur.execute(query)
+	rows = cur.fetchall()
+	cur.close()
+	return rows
+#
+#
+#Executes the sql statement to INSERT and UPDATE rows
+#
+def execute_sql(database, sql_statement):
+	#allows the code to add to the database
+	Lconn = sqlite3.connect(database)
+	cur = Lconn.cursor()
+	cur.execute(sql_statement)
+	Lconn.commit()
+	return cur.lastrowid
