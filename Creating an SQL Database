@@ -1,0 +1,10 @@
+sql = """
+CREATE TABLE "Customer_Table" ( 
+"CustomerID" INTEGER NOT NULL,
+"CustomerFname" TEXT,
+"User_name" TEXT,
+"Password" TEXT,
+"PhoneNumber" TEXT,
+"CustomerEmail" TEXT,
+PRIMARY KEY("CustomerID" AUTOINCREMENT)
+);
