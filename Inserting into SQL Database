@@ -1,0 +1,16 @@
+def execute_sql(database, sql_statement):
+	#allows the code to add to the database
+	Lconn = sqlite3.connect(database)
+	cur = Lconn.cursor()
+	cur.execute(sql_statement)
+	Lconn.commit()
+	return cur.lastrowid
+
+
+print('')
+#makes an sql insert for the database "Customer_table"
+mysqlinsert = ("insert into Customer_Table (CustomerFname, User_name, Password, CustomerEmail, PhoneNumber) VALUES ('"+ str(FN_textbox.value) + "','" + str(UN_textbox.value) + "','" + str(PW_textbox.value) + "','" + str(PN_textbox.value) + "','" + str(EM_textbox.value) + "')")
+#print(mysqlinsert)
+info('Thank you!','Thank you for signing up!') # pop up message
+execute_sql(database_file,mysqlinsert) # goes to eqecute sql
+Review()
