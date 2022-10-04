@@ -1,0 +1,16 @@
+#finds the username and password from inside the database
+sqlselect = "SELECT * FROM Customer_Table WHERE User_name = '"+user_textbox.value+"'"
+rows = query_database(database_file, sqlselect)
+if len(rows) == 0: ### This checks that the user was found ###
+	info("Error","Username is not found") # pop up message
+else:
+	dbp = rows[0][3] #This is the password from row 0
+	if dbp == PW.value:
+		info("Log in","You are now logged in") # pop up message
+    user_ID = rows[0][0]
+		nowtoday = datetime.date.today() # gets the date and time for today
+		formatted_now = nowtoday.strftime('%d/%m/%Y') # format it to only date
+		ReviewDateNow.value = formatted_now # puts it into the value ReviewDateNow
+		Review()
+	else:
+		info('Error','Password Incorrect') # pop up message
