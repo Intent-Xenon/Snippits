@@ -8,3 +8,22 @@ CREATE TABLE "Customer_Table" (
 "CustomerEmail" TEXT,
 PRIMARY KEY("CustomerID" AUTOINCREMENT)
 );
+CREATE TABLE "Review_Table" (
+"ReviewID"  INTEGER NOT NULL,
+"ReviewWriteUp" TEXT,
+"ReviewDate" TEXT,
+"ReviewTopic"  TEXT,
+"CustomerID"  INTEGER,
+PRIMARY KEY("ReviewID" AUTOINCREMENT),
+CONSTRAINT "CustomerID_fk"  FOREIGN KEY("CustomerID") REFERENCES "Customer_Table"("CustomerID")
+);
+insert into Customer_Table (CustomerFname, User_name, Password, CustomerEmail, PhoneNumber) values ('Joe','j12', 'passw21','07783661612','joe.@outlook.com');
+insert into Customer_Table (CustomerFname, User_name, Password, CustomerEmail, PhoneNumber) values ('Fred','h821','pp','07783654912','fred.@outlook.com');
+insert into Customer_Table (CustomerFname, User_name, Password, CustomerEmail, PhoneNumber) values ('Harry','h162','p01P', '07783661632','Harry.@outlook.com');
+insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Funny prices', '08/02/2022', 'Prices', 1);
+insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Gas prices are too high', '18/12/2022', 'Prices', 2);
+insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Rotten products', '28/02/2022', 'Products', 2);
+insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Abusive employees', '17/6/2022', 'Abuse', 3);
+insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Spaghetti was on the walls', '16/05/2022', 'Product', 3);
+insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Self-scan was not taking cash', '06/01/2022', 'Maintenance', 3);
+"""
