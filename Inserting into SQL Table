@@ -1,4 +1,1 @@
-#make sure to have all the right parameters
-insert into Customer_Table (CustomerFname, User_name, Password, CustomerEmail, PhoneNumber) values ('Joe','j12', 'passw21','07783661612','joe.@outlook.com');
-#
-insert into Review_Table (ReviewWriteUp, ReviewDate, ReviewTopic, CustomerID) values ('Funny prices', '08/02/2022', 'Prices', 1);
+
