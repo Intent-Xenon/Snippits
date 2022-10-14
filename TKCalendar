@@ -1,0 +1,30 @@
+import tkinter as tk
+from tkinter import ttk
+from tkcalendar import DateEntry,Calendar
+
+def my_upd(cal):
+	global datechosen
+	datechoice=''
+	dt=cal.selection_get() 
+	datechoice=cal.get_date()
+	l1 = date
+	datechoice=dt.strftime("%d/%m/%Y") # format changed
+	#l1.config(date) # read and display date
+	textdate.value = datechoice
+	textdate.disable()
+
+def calendar_choice():
+	#creates the window for the calendar
+	window = tk.Tk()
+	window.title('Calendar for choosing Date')
+
+	cal =Calendar(window,selectmode = 'day')
+	cal.grid(row=1, column = 1, padx=20)
+
+	b1=tk.Button(window,text='Read',command=lambda:my_upd(cal))
+	b2=tk.Button(window,text='Close',command=lambda:Closewindow(window))
+
+	b1.grid(row=2,column=1)
+	b2.grid(row=3,column=1)
+
+	window.mainloop()
