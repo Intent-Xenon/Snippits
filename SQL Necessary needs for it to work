@@ -1,9 +1,9 @@
-database_file = 'UserApp.db'
+database_file = 'FitnessApp.db'
 user_ID = 1
 #
 #
 #
-#Delete the database, only if it exists
+#Delete the database if it exists
 #
 #
 if os.path.exists(database_file):
