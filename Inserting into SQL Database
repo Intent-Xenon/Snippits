@@ -1,5 +1,5 @@
 def execute_sql(database, sql_statement):
-	#allows the code to add to the database
+	#allows the code to insert to the database
 	Lconn = sqlite3.connect(database)
 	cur = Lconn.cursor()
 	cur.execute(sql_statement)
