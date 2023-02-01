@@ -1,0 +1,37 @@
+def sql_count_number():
+	sqlselect = "SELECT count(SeatID) from Seat_Table"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	info('Amount','Total amount of Seats booked are: ' + str(Total_Amount))
+#
+def sql_total_income():
+	sqlselect = "SELECT sum(SeatCost) from Seat_Table"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	info('Amount','Total amount of Income is are: £' + str(Total_Amount))
+
+def sql_count_friday():
+	sqlselect = "SELECT count(SeatID) from Seat_Table where SeatDay ='Friday'"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	info('Amount','Total count of bookings for friday is: ' + str(Total_Amount))
+	return Total_Amount
+
+def sql_count_saturday():
+	sqlselect = "SELECT count(SeatID) from Seat_Table where SeatDay ='Saturday'"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	info('Amount','Total count of bookings for saturday is: ' + str(Total_Amount))
+	return Total_Amount
+
+def sql_count_friday_graph():
+	sqlselect = "SELECT count(SeatID) from Seat_Table where SeatDay ='Friday'"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	return Total_Amount
+
+def sql_count_saturday_graph():
+	sqlselect = "SELECT count(SeatID) from Seat_Table where SeatDay ='Saturday'"
+	rows = query_database(database_file, sqlselect)
+	Total_Amount = rows[0][0]
+	return Total_Amount
