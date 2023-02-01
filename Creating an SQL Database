@@ -16,7 +16,7 @@ CREATE TABLE "Booking_Table" (
 "DateofBooking" TEXT,
 "Performance" TEXT,
 "PerformanceDate"  DATE,
-"PerformanceTime"  INTEGER,
+"PerformanceTime"  STRING,
 "CustomerID" INTEGER,
 PRIMARY KEY("BookingID" AUTOINCREMENT),
 CONSTRAINT "CustomerID_fk"  FOREIGN KEY("CustomerID") REFERENCES "Customer_Table"("CustomerID")
